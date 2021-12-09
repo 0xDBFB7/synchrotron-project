@@ -48,9 +48,11 @@ The power on M1 after the undulator is almost 500 W!
 
 
 
-#### Is ionization damage/dislocation on the target a serious concern?
+#### Is ionization damage/dislocation on the target a concern?
 
-Yes! @close2015 calls for better reporting standardization, as total dose can affect results. I'm not sure that CLS mentioned total dose as a reporting variable - might perhaps be an interesting method. They also state that, since the beam spot size has decreased along with an increase in 
+Yes! @close2015 calls for better reporting standardization, as total dose can affect results. I'm not sure that CLS mentioned total dose as a reporting variable - might perhaps be an interesting method. They also state that, since the beam spot size has decreased, increased. They also state that in Cryo EM, 
+
+Radiation-induced dislocations don't seem to occur at these wavelengths. 
 
 Possible research question: what effect does radiation dose have on <example study>, and how will these effects be increased with the new beamline?
 
@@ -72,9 +74,19 @@ I don't see any provisions on the control panel for pulsed operation. There is a
 > @OPPORTUNITIES
 
 
+
+
+
 #### What detector is usually used for XAS?
 
 
+#### What material is the VLS-PGM sample holder made of?
+
+Carbon tape is used to affix the sample to the holder.
+
+#### Are samples typically cooled?
+
+In some beamlines there are provisions for cooling.
 
 #### How does bremsstrahlung from the storage ring synchrotron radiation differ from that from electron-copper collision?
 
@@ -129,10 +141,17 @@ The gap width is adjusted. On electromagnet undulators this is done by altering 
 
 > The vast majority of proposals for this new facility were based upon the radiation from insertion devices IDs and not from bending magnets.
 
+#### For absorption measurements, how is fluroescence light filtered on the output photodiode?
+
+
+
+#### What's the difference between RIXS and XAS?
+
+Discussed by @XASa 
 
 #### Why can't 'household' x-ray sources be used for XAS? Is XAS ever done in SEMs?
 
-I have read that it is difficult to monochromate x-ray sources.
+I have read that it is difficult to monochromate basic x-ray sources.
 
 #### If relativistic charges instead radiated parallel to the acceleration, rather than in the direction of the velocity, would synchrotrons be possible?
 
@@ -140,6 +159,11 @@ I have read that it is difficult to monochromate x-ray sources.
 #### How does the two-beam M1, M2 chicane work? 
 
 
+#### Why does the VLS-PGM webpage say that TEY and FLY are "standard XAS"?
+
+I am not sure if VLS-PGM has "straight-through" Beers law detector. TEY and FLY are both indirect methods of reading out the absorption spectrum, and might have different surface. 
+
+> standard XAS measurements, where Total Electron Yield (TEY) and Total Fluorescence Yield (FLY) are recorded, the VLSPGM provide two alternative forms of data acquisition configurations: 
 
 #### What's the difference between XAS and XPS?
 
@@ -150,9 +174,63 @@ I have read that it is difficult to monochromate x-ray sources.
 #### What are the steps to get a result from XANES?
 
 
-# Pitfalls and best practices
+#### Some formulations use bras and kets. What does a basic quantum mechanical formulation of XAS with FLY look like?
+
+
+
+#### What is "pink synchrotron light"?
+
+#### Why are people allocated 8-hour blocks? What fraction of that 8 hours are samples in the load-lock and being analyzed? Does the 8-hours include time for sample prep?
+
+Some experiments may require time- or condition- sensitive samples, e.g. without moisture. This would make it more reasonable to have block allocations of time.
+
+#### Why are the M mirrors coated in carbon, and why is carbon tape used to fix samples?
+
+In other situations, e.g. EXAFS, it's said that carbon contamination can be detrimental.
+
+#### How is the photon flux adjusted?
+
+In the manual for the TOF spectrometer, it is stated that the photon flux can be adjusted. How is this performed?
+
+#### It is said that bremmstralung is quantized. This causes emittance growth in electron accelerators
+
+Naturally; it is emitted in single photons. It is said that 
+
+#### What is "the I0 mesh"?
+
+A gold wire mesh of maybe 20 um can be placed before or after the sample; photoelectrons are emitted by the mesh. Unlike (?) when sample measurements are made,
+
+#### Which definition of emittance is most commonly used at the CLS?
+
+Emittance is "conserved area in phase-space".
+
+#### In [@VLSPGM2007a], a graph of photon energy vs intensity for Helium is shown, and named the "double excitation spectrum". The first peak is at about 63 eV. Why is this different from the second ionization energy of helium?
+
+
+#### Why does X-ray luminescence depend on color of material?
+
+https://youtu.be/YT4ZtCCP31s
+
+At 20:47, that video also has a great intro to EXAFS.
+
+
+
+#### What's the difference between the classical mechancis Hamiltonian and the QM one?
+
+I CM, the hamiltonian is T = H+V, i.e the total energy of the system (kinetic and hamiltonian). In QM, 
+
+
+# Pitfalls and best practices, automated quality controls
 
 Already we have our first issue. @close2015
+
+Contamination of the gold mesh can lead to a decreased PE emission current.
+
+
+In @Retraction2018, 
+
+> The spectrum published in our PCCP paper is not consistent with backups of raw data from the beamline computer and it was thus modified while no specific data treatment is mentioned.
+
 
 
 
