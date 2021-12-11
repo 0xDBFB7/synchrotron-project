@@ -25,6 +25,12 @@ we want to do the inverse problem: given an input spectrum  create a synthetic
 
 
 
+--------------------------------------------------------------------------------------------------
+
+
+
+
+
 
 
 

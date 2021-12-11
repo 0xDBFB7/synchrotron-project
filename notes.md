@@ -46,6 +46,9 @@ The power on M1 after the undulator is almost 500 W!
 
 #### Shouldn't a grating monochromator have higher order modes, which would let the background bremnsstralung from distant bending dipole get through? How are these filtered out?
 
+#### Standard file formats for XAFS?
+
+X ray data interchange.
 
 
 #### Is ionization damage/dislocation on the target a concern?
@@ -179,6 +182,8 @@ Discussed by @XASa
 
 I have read that it is difficult to monochromate basic x-ray sources sufficiently to provide a good resolution. 
 
+However,
+
 > A conventional X-ray tube can be used as a source of X-rays for XAMES
 > and XANES work because it provides a reliable energy calibration with the help
 > of reference emission lines. When intense synchrotron radiation is used, the
@@ -194,6 +199,8 @@ I have read that it is difficult to monochromate basic x-ray sources sufficientl
 > photons/s in a 10 eV bandwidth) is a satisfactory source [7.8, 151J for EXAFS
 > work when a curved crystal (focusing type) spectrograph is used as the analyzer.
 > [@XRay1991, p.269]
+
+There's a brand of "metal-jet" x-ray sources that seem to have great flux properties nowadays.
 
 #### If relativistic charges instead radiated parallel to the acceleration, rather than in the direction of the velocity, would synchrotrons still be possible?
 
@@ -212,6 +219,7 @@ I am not sure if VLS-PGM has "straight-through" Beers law detector. TEY and FLY 
 
 #### 
 
+https://xraydb.xrayabsorption.org/atten/
 
 #### What are the steps to get a result from XANES?
 
@@ -249,6 +257,10 @@ A gold wire mesh of maybe 20 um can be placed before or after the sample; photoe
 Emittance is "conserved area in phase-space".
 
 #### In [@VLSPGM2007a], a graph of photon energy vs intensity for Helium is shown, and named the "double excitation spectrum". The first peak is at about 63 eV. Why is this different from the second ionization energy of helium?
+
+
+#### How does the energy compression system work?
+
 
 
 #### Some XAFS and EXAFS are sensitive to the electric field. Can this be helpful to 
@@ -314,61 +326,6 @@ XRF
 
 I think EXAFS, even if disregarding "multiple scattering", still takes into account 
 
-#### Is it possible to get a better idea of the monochromator output spectrum 
-
-Lacking a solid foundation in quantum mechanics, and disenfranchised by how many EXAFS codes there are, 
-
-The "resolution" of the thing is limited by the narrowness of the monochromator bandwidth.
-
-In many of the CLS' calibration datasets (like @VLSPGM2007a), a narrow peak in the helium spectrum is used to compute the resolving power. 
-A graph of calculated resolving power versus energy is also provided.
-
-The question is, the helium peak has a finite width in reality. This width and the monochromator width are convolved to produce the output.
-
-if we deconvolve, we can compare to the same spectrum on a better machine, etc.
-or, assuming emittance / acceptance angle / through the beam-path is the largest factor (doubtful), try to replicate the cls's simulation.
-
-Based on this, 
-
-Larch already includes a deconvolution function, 
-https://xraypy.github.io/xraylarch/xafs_preedge.html
-
-but this has not been pulled out into the api for demeter.
-https://bruceravel.github.io/demeter/documents/DPG/mue/deconvolve.html
-people have actually asked for it!
-https://millenia.cars.aps.anl.gov/pipermail/ifeffit/2019-April/009784.html
-
-indeed it's on demeter's to-do list https://bruceravel.github.io/demeter/todo.html. Cool!
-
->Remove experimental and lifetime broadening from your data.
-> A deconvolution algorithm is one of the most important things
->	   in :demeter:`demeter` that has not yet been started.
-
-it sounds like he wants something more than just larch's deconv. 
-
-need to stress care and pitfalls.
-
-can probably compare to larch's own deconv. unit tests
-
-on the other hand, experimental stuff might contribute to this.
-
-@Extraction2000 suggest a quite exceptionally complex Baesian statistical deconvolution.
-
-Deconvolution can maybe be done in a fourier-transform way, like 
-or using a transfer-function
-
-can prototype with python first then translate into demeter's perl
-
-##### Does Larch's deconv algorithm do $\lambda / \text{d}\lambda$ or a fixed energy spread?
-
-
-
-##### What is core-hole lifetime broadening: are there any systems that do not exhbit it (He gas calibration)?
-
-Resolving power varies with energy, 
-also lifetime broadening 
-
-Use resolving power equation from agarwal
 
 
 # Pitfalls and best practices, automated quality controls
@@ -386,6 +343,7 @@ In @Retraction2018,
 I've noticed that, because of the deadline & stuff associated with this project, I've stopped thinking in terms of "what do I feel like I need to learn" or "what can I do that will be genuinely useful or informative" to "what will be most impressive". Definitely something to avoid.
 
 
+#### What is an "apple II" undulator?
 
 # Resources
 
