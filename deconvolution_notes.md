@@ -104,3 +104,72 @@ The PLEIADES beamline is about 1 order of magnitude more spectrally pure than
 https://www.wayforlight.eu/en/beamline/20876
 
 note the larch sample lifetime broadening equation for hydrogen
+
+
+
+
+
+@Deconvolving2007 blammo! I love you guys. okay. this seems more straightforward than the other paper. 
+first implement this in Python.
+actually really really simple.
+
+looks like this ended up as a physical review paper by Fister et al.
+
+however, this seems to use a non-energy-varying gaussian, whereas the true gaussian of the experimental system changes by many orders of magnitude over the eneryg.
+maybe at each grid point a different-sized gaussian width parameter could be used...
+actually, it doesn't even need to be gaussian. the input there could be the true "undulator and monochromator" output, since it's just going to be convolved
+with the core-hole gaussian.
+
+In fact, this technique flat-out *won't work* with much of the data from the VLS-PGM. 
+maybe a second grid (or just break into small segments) on a much coarser grid can be used to implement a variable 
+
+use a high-order polynomial to approximate the instrument response
+
+their technique does mandate a filtering step, so very sharp information may be lost....
+
+honestly the dependence of the output on the filtering intensity is quite troubling. Definitely something to note.
+
+> Here, the deconvolved estimate is not able to fully resolve features with
+> widths below ~2 eV
+
+after this is done, should see what the latest data is on this R-L technique.
+it seems like this is powerful enough, but not quite the best.
+
+
+demeter comms with larch via the "larch server". 
+
+
+larch uses scipy diconvolve.
+
+##### Test cases
+
+
+
+some datasets for metals can be found at https://github.com/XraySpectroscopy/XASDataLibrary/tree/master/data
+
+argon k-edge is at https://physics.nist.gov/PhysRefData/XrayMassCoef/ElemTab/z18.html ,  but not very high resolution
+
+fister use Ag k-edge: this is availabel in the xasdl.
+
+http://skuld.bmsc.washington.edu/scatter/AS_periodic.html
+has some generated data for each of the elements
+
+same here https://henke.lbl.gov/optical_constants/asf.html but there's no data on how it was collected
+
+- low core-hole broadened elements, no 
+- 
+
+
+- Compare CLS VLS-PGM data to PLEIADES
+
+
+#### Varying spread-function tests
+
+convolve a gaussian 
+
+
+
+
+#### The Richardson-Lucy Algorithm
+
+
