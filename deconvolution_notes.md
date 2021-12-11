@@ -108,7 +108,6 @@ note the larch sample lifetime broadening equation for hydrogen
 
 
 
-
 @Deconvolving2007 blammo! I love you guys. okay. this seems more straightforward than the other paper. 
 first implement this in Python.
 actually really really simple.
@@ -117,11 +116,20 @@ looks like this ended up as a physical review paper by Fister et al.
 
 however, this seems to use a non-energy-varying gaussian, whereas the true gaussian of the experimental system changes by many orders of magnitude over the eneryg.
 maybe at each grid point a different-sized gaussian width parameter could be used...
+
 actually, it doesn't even need to be gaussian. the input there could be the true "undulator and monochromator" output, since it's just going to be convolved
 with the core-hole gaussian.
 
+# that's key
+
+
+
+
 In fact, this technique flat-out *won't work* with much of the data from the VLS-PGM. 
-maybe a second grid (or just break into small segments) on a much coarser grid can be used to implement a variable 
+maybe a second grid (or just break into small segments) on a much coarser grid can be used to implement a variable PSF.
+Fister et al don't need this because they're only working with small segments of a spectrum.
+
+
 
 use a high-order polynomial to approximate the instrument response
 
@@ -139,7 +147,25 @@ it seems like this is powerful enough, but not quite the best.
 demeter comms with larch via the "larch server". 
 
 
-larch uses scipy diconvolve.
+larch uses scipy diconvolve, "inverse filtering". 
+
+https://www.ft.unicamp.br/docentes/magic/khoros/html-dip/c7/s1/front-page.html
+
+
+use monochromator equation as example spectrum or something
+
+#### What advantages does the iterative richardson-lucy algo have over deconvolve?
+
+For one, the Fister technique has
+
+0. provisions for both the core-hole and the 
+1. noise tolerance compared to basic inverse filtering
+
+also hopefully:
+
+2. adjustable width with energy (maybe)
+3. not assuming gaussian distribution (maybe)
+
 
 ##### Test cases
 
@@ -172,4 +198,6 @@ convolve a gaussian
 
 #### The Richardson-Lucy Algorithm
 
+
+need to note that "fano profile analysis" and "curve fitting" was done (what is that?) by He when characterizing the VLS, they're not going blind
 
