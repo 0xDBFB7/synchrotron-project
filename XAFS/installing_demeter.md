@@ -67,7 +67,7 @@ hitting ctl-c at the apache error allows install to continue. Nice.
 
 everything's brokenn
 
-oh, it was conda messing things up. conda deactivate, then got a perl error
+*oh, it was conda messing things up.* conda deactivate, then got a perl error
 Can't locate DemeterBuilder.pm in @INC (you may need to install the DemeterBuilder module)
 
 export PERL5LIB="$PERL5LIB:$PWD"
@@ -75,3 +75,8 @@ perl ./Build.PL
 
 
 okay, that worked! fantastic.
+
+
+Installed larch in a new conda env larch_env because it needed an updated numpy version.
+
+python 

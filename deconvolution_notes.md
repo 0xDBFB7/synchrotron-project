@@ -147,18 +147,29 @@ it seems like this is powerful enough, but not quite the best.
 demeter comms with larch via the "larch server". 
 
 
-larch uses scipy diconvolve, "inverse filtering". 
+larch uses scipy diconvolve, "inverse filtering" - divides the frequency domain of one signal by the otther.
 
 https://www.ft.unicamp.br/docentes/magic/khoros/html-dip/c7/s1/front-page.html
 
 
 use monochromator equation as example spectrum or something
 
+https://github.com/xraypy/xraylarch/blob/a02840b3ce0cf9c24461e5a000f28f2034601e4c/larch/xafs/deconvolve.py
+
 #### What advantages does the iterative richardson-lucy algo have over deconvolve?
 
 For one, the Fister technique has
 
-0. provisions for both the core-hole and the 
+0. provisions for both the core-hole and the experimental subtraction
+
+The convolution of two gaussian distributions is a gaussian: so strictly speaking it's possible to incorporate this now.
+
+https://jeremy9959.net/Math-5800-Spring-2020/notebooks/convolution_of_gaussians.html
+
+> If $F$ is gaussian with mean $\mu$ and variance $\sigma$, and $G$ is the gaussian with mean $\nu$ and variance $\tau$, then $F\star G$ 
+
+however: if the two distributions are different (which seems likely to be the case)
+
 1. noise tolerance compared to basic inverse filtering
 
 also hopefully:
@@ -166,6 +177,9 @@ also hopefully:
 2. adjustable width with energy (maybe)
 3. not assuming gaussian distribution (maybe)
 
+
+an even more advanced deconv could be implemented using either https://en.wikipedia.org/wiki/Wiener_filter 
+or that other paper's baesian
 
 ##### Test cases
 
@@ -188,12 +202,12 @@ same here https://henke.lbl.gov/optical_constants/asf.html but there's no data o
 
 - Compare CLS VLS-PGM data to PLEIADES
 
+look into other deconvolution validation
+
 
 #### Varying spread-function tests
 
-convolve a gaussian 
-
-
+convolve a bunch of different gaussians with a sawtooth square function.
 
 
 #### The Richardson-Lucy Algorithm
@@ -201,3 +215,58 @@ convolve a gaussian
 
 need to note that "fano profile analysis" and "curve fitting" was done (what is that?) by He when characterizing the VLS, they're not going blind
 
+
+
+> Currently, the best citation for Larch is M. Newville, Larch: An Analysis Package For XAFS And Related Spectroscopies. Journal of Physics: Conference Series, 430:012007 (2013). [Newville (2013)]
+
+
+> The algorithm is based on a PSF (Point Spread Function), where PSF is described as the impulse response of the optical system. 
+
+oh neat
+
+
+scikit has a richardson-lucy implementation 
+https://scikit-image.org/docs/dev/auto_examples/filters/plot_deconvolution.html
+not sure if we can use that, since we need to filter, too.
+
+
+
+is there a way we can extract the PSF / monochromator output distribution from the plot?
+one risk would be that, in more complex situations, we might subtract some unknown 
+
+
+the call signiture should be
+
+psf_function() can be 'lorentzian', 'gaussian', return a 1d interpolation function (for constant but weirdly-shaped functions)
+or maybe the PCA thing ? 
+deconvolution(mode= psf=psf_function
+
+
+
+'athena' uses LARCH here:
+
+> In ATHENA's implementation of peak fitting, a Levenberg-Marquardt non-linear least-squares minimization is used. (To be specific, IFEFFIT's minimize command is used after constructing an array with a sum of line shapes or LARCH's minimize function is using an objective function which contructs an array with a sum of the line shapes.)
+
+> An obviously useful function are not available in the current version of ATHENA is a broadened Cromer-Lieberman calculation of the bare atomic edge step (which might better approximate the shape of the XANES data).
+
+
+
+can probably just directly copy the convolution athena program to add deconv.
+
+
+man, athena is *such* a well-documented program. the preferences section is really good too.
+
+#### Starting demeter with larch backend. 
+
+one way to tell is if more options are added to peak fit types.
+do larch_server start
+
+DEMETER_BACKEND env var is not documented. should add to 
+
+okay, got it to work. entered into conda and ran dathena, still worked despite different perl; dmeter seems to need larch on the path
+might be nice to have an env var to skip that check and just do a remote connection to the port.
+
+## WARNING 
+this means I need to switch back and forth to compile larch - cannot compile in the same window.
+
+https://millenia.cars.aps.anl.gov/pipermail/ifeffit/2017-August/009222.html

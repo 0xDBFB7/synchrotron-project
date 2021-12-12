@@ -328,6 +328,14 @@ I think EXAFS, even if disregarding "multiple scattering", still takes into acco
 
 
 
+#### What is an "apple II" undulator?
+
+#### what is larch "happiness"?
+
+
+
+#### What is a xanes "standard"?
+
 # Pitfalls and best practices, automated quality controls
 
 Already we have our first issue. @close2015
@@ -342,10 +350,9 @@ In @Retraction2018,
 
 I've noticed that, because of the deadline & stuff associated with this project, I've stopped thinking in terms of "what do I feel like I need to learn" or "what can I do that will be genuinely useful or informative" to "what will be most impressive". Definitely something to avoid.
 
+##### Position and definition of E0
 
-#### What is an "apple II" undulator?
-
-#### what is larch "happiness"?
+The first peak of the first derivative is a common definition, but others can be used. might be nice to report which one.
 
 
 # Resources
