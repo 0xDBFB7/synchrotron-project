@@ -15,6 +15,7 @@ COnvolve and noise and deconvolve and see which one is a more accurate represent
 rather than using existing unknown core-hole
 
 In papers describing the VLS-PGM and similar beamlines, the "resolving power" of the system 
+
 This resolving power seems to mostly reflect the quality of the output spectrum of the monochromator.
 
 Z^4
