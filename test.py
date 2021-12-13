@@ -39,26 +39,31 @@ convolved[samples//2:samples//2+samples//4] = np.flip(np.convolve(squares, kerne
 
 
 
-incremental_energies = (end_energy/samples)*np.ones_like(energies) # first assume linear sampling
-warped_incremental_energies = incremental_energies / (dE_width/np.min(dE_width))
-warped_energies = np.cumsum(warped_incremental_energies) - warped_incremental_energies[0]
+# incremental_energies = (end_energy/samples)*np.ones_like(energies) # first assume linear sampling
+# warped_incremental_energies = incremental_energies / (dE_width/np.min(dE_width))
+# warped_energies = np.cumsum(warped_incremental_energies) - warped_incremental_energies[0]
 
-warped_new_uniform_grid = np.linspace(0,warped_energies[-1], samples)
-re_sampled_warped_convolved = interpolate.interp1d(warped_energies, convolved)(warped_new_uniform_grid)
-
-
+# warped_new_uniform_grid = np.linspace(0,warped_energies[-1], samples)
+# re_sampled_warped_convolved = interpolate.interp1d(warped_energies, convolved)(warped_new_uniform_grid)
 
 
 
-def warp_array(energies, warp_function):
+
+
+def warp_array(input_function, energies, warp_function):
     incremental_energies = (energies[-1]/len(energies))*np.ones_like(energies) # first assume linear sampling
     warped_incremental_energies = incremental_energies / (warp_function/np.min(warp_function))
     warped_energies = np.cumsum(warped_incremental_energies) - warped_incremental_energies[0]
 
     warped_new_uniform_grid = np.linspace(0,warped_energies[-1], samples)
-    re_sampled_warped_convolved = interpolate.interp1d(warped_energies, convolved)(warped_new_uniform_grid)
+    re_sampled_warped_convolved = interpolate.interp1d(warped_energies, input_function)(warped_new_uniform_grid)
 
     return warped_new_uniform_grid, re_sampled_warped_convolved
+
+warped_new_uniform_grid, re_sampled_warped_convolved = warp_array(convolved, energies, dE_width)
+
+unwarped_energies, unwarped = warp_array(re_sampled_warped_convolved, warped_new_uniform_grid, np.flip(dE_width))
+
 
 # def unwarp_array(warped_array, energy_width_function, reference_sigma, warped_new_uniform_grid, original_energy_spacing):
 #     incremental_energies = (original_energy_spacing[-1]/samples)*np.ones_like(original_energy_spacing) # first assume linear sampling
@@ -88,12 +93,12 @@ plt.subplot(4,1,2)
 plt.plot(energies,convolved)
 
 plt.subplot(4,1,3)
-plt.plot(warped_energies,convolved)
+# plt.plot(warped_energies,convolved)
 plt.plot(warped_new_uniform_grid,re_sampled_warped_convolved)
 
 plt.subplot(4,1,4)
 
-plt.plot(energies,unwarped)
+plt.plot(unwarped_energies,unwarped)
 
 plt.show()
 
