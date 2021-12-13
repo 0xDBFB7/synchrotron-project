@@ -41,7 +41,7 @@ In a machine with a resolving power of 0.025
 One impediement to ultimate resolution, especially in the case of the VLS-PGM, is the non-flatness of the 
 
 
-
+in practice, segments of spectrum requiring  ultra-high-resolution are hardly likely to be longer than a few tens of eV, so the variation in spectrum doesn't seem likely 
 
 
 
