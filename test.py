@@ -36,92 +36,29 @@ kernel /= np.sum(kernel)
 convolved[samples//2:samples//2+samples//4] = np.flip(np.convolve(squares, kernel,mode='same')[samples//2:samples//2+samples//4])
 
 
-# def warp_array(x,y,var,oversample=1,mode='same'):
-#     '''
-#     NOTE: this is derivative code from GPL-licensed repo
-#     https://github.com/sheliak/varconvolve/blob/master/varconvolve.py
-#     '''
-#     var=interpolate.interp1d(x,var)
-    
-#     #build the new sampling array. Start at first element in x, end after we reach the last element in x:
-#     x_new=[x[0]]
-#     n=0
-
-#     m=np.max(var(x))
-#     sampl=np.diff(x)[0]
-#     while(x_new[n]+var(x_new[n])/m/oversample*sampl<=x[-1]):
-#         x_new.append(x_new[n]+var(x_new[n])/m/oversample*sampl)
-#         n+=1
-#     x_new.append(x_new[n]+var(x_new[n])/m/oversample*sampl)
-
-#     y_new=np.interp(x_new,x,y)
-
-#     return x_new, y_new
-
-def va(x):
-    return np.abs(7*np.sin(0.5*np.pi*x / end_energy)**4.0)+1    
-
-def varconvolve(x,y,var,oversample=1,mode='same'):
-    """
-    x: an array with x coordinates of the points
-    y: ana rray with y coordinates of the points
-    kernel: name of the function that describes the kernel. Must have one argument, the width of the kernel in x units
-    var: a function that returns the kernel width in one point.
-    """
-
-    
-
-    #check if sampling is uniform:
-    if abs(np.max(np.diff(x))-np.min(np.diff(x)))<0.000001*np.diff(x)[0]:
-        sampl=np.diff(x)[0]
-    else:
-        raise RuntimeError('Sampling must be uniform.')
-
-    #build the new sampling array. Start at first element in x, end after we reach the last element in x:
-    x_new=[x[0]]
-    n=0
-
-    m=np.max(var(x))
-
-    while x_new[n]+var(x_new[n])/m/oversample*sampl<=x[-1]:
-        x_new.append(x_new[n]+var(x_new[n])/m/oversample*sampl)
-        n+=1
-    x_new.append(x_new[n]+var(x_new[n])/m/oversample*sampl)
-
-    y_new=np.interp(x_new,x,y)
-
-    return x_new, y_new
-
-# def unwarp_array(x, x_new, y_new):
-#     return np.interp(x,x_new,y_new)
-
-warped_energies, warped_convolved = varconvolve(energies,convolved,va,oversample=1,mode='same')
-
-# warped_energies, warped_convolved = warp_array(energies,convolved,dE_width,oversample=1,mode='same')
-
-# unwarped= unwarp_array(energies, warped_energies, warped_convolved)
-
-# incremental_energies = (end_energy/samples)*np.ones_like(energies) # first assume linear sampling
-# warped_incremental_energies = incremental_energies / (dE_width/(np.max(dE_width)))
-# warped_energies = np.cumsum(warped_incremental_energies) - warped_incremental_energies[0]
-
-# warped_new_uniform_grid = np.linspace(0,warped_energies[-1], samples)
-# re_sampled_warped_convolved = interpolate.interp1d(warped_energies, convolved)(warped_new_uniform_grid)
 
 
-# unwarped = interpolate.interp1d(warped_new_uniform_grid, re_sampled_warped_convolved)(energies)
 
-# def warp_array(energies):
-#     incremental_energies = (end_energy/samples)*np.ones_like(energies) # first assume linear sampling
+incremental_energies = (end_energy/samples)*np.ones_like(energies) # first assume linear sampling
+warped_incremental_energies = incremental_energies / (dE_width/np.min(dE_width))
+warped_energies = np.cumsum(warped_incremental_energies) - warped_incremental_energies[0]
 
-#     warped_incremental_energies = incremental_energies / (np.abs(dE_width - reference_sigma) + 1)
-#     warped_energies = np.cumsum(warped_incremental_energies) - warped_incremental_energies[0]
+warped_new_uniform_grid = np.linspace(0,warped_energies[-1], samples)
+re_sampled_warped_convolved = interpolate.interp1d(warped_energies, convolved)(warped_new_uniform_grid)
 
 
-#     # re-sample to uniform spacing
-#     warped_new_uniform_grid = np.linspace(0,warped_energies[-1], samples)
-#     re_sampled_warped_convolved = interpolate.interp1d(warped_energies, convolved)(warped_new_uniform_grid)
 
+
+
+def warp_array(energies, warp_function):
+    incremental_energies = (energies[-1]/len(energies))*np.ones_like(energies) # first assume linear sampling
+    warped_incremental_energies = incremental_energies / (warp_function/np.min(warp_function))
+    warped_energies = np.cumsum(warped_incremental_energies) - warped_incremental_energies[0]
+
+    warped_new_uniform_grid = np.linspace(0,warped_energies[-1], samples)
+    re_sampled_warped_convolved = interpolate.interp1d(warped_energies, convolved)(warped_new_uniform_grid)
+
+    return warped_new_uniform_grid, re_sampled_warped_convolved
 
 # def unwarp_array(warped_array, energy_width_function, reference_sigma, warped_new_uniform_grid, original_energy_spacing):
 #     incremental_energies = (original_energy_spacing[-1]/samples)*np.ones_like(original_energy_spacing) # first assume linear sampling
@@ -132,7 +69,7 @@ warped_energies, warped_convolved = varconvolve(energies,convolved,va,oversample
 #     unwarped_incremental_energies = warped_incremental_energies * (np.abs(dE_width - reference_sigma) + 1)
 
 #     global warped_energies
-#     unwarped_energies = warped_energies * (np.abs(dE_width - reference_sigma) + 1)
+#     energies-warped_energies
 #     # unwarped_energies = np.cumsum(unwarped_incremental_energies) - unwarped_incremental_energies[0]
 
 #     # re-sample to uniform spacing
@@ -147,15 +84,16 @@ warped_energies, warped_convolved = varconvolve(energies,convolved,va,oversample
 plt.subplot(4,1,1)
 plt.plot(energies, dE_width)
 plt.subplot(4,1,2)
-plt.plot(energies, squares)
+# plt.plot(energies, squares)
 plt.plot(energies,convolved)
 
 plt.subplot(4,1,3)
 plt.plot(warped_energies,convolved)
+plt.plot(warped_new_uniform_grid,re_sampled_warped_convolved)
 
 plt.subplot(4,1,4)
 
-# plt.plot(unwarped)
+plt.plot(energies,unwarped)
 
 plt.show()
 
