@@ -36,15 +36,39 @@ kernel /= np.sum(kernel)
 convolved[samples//2:samples//2+samples//4] = np.flip(np.convolve(squares, kernel,mode='same')[samples//2:samples//2+samples//4])
 
 
-incremental_energies = (end_energy/samples)*np.ones_like(energies) # first assume linear sampling
-warped_incremental_energies = incremental_energies / (dE_width/(np.max(dE_width)))
-warped_energies = np.cumsum(warped_incremental_energies) - warped_incremental_energies[0]
+def warp_array(x,y,var,oversample=1,mode='same'):
 
-warped_new_uniform_grid = np.linspace(0,warped_energies[-1], samples)
-re_sampled_warped_convolved = interpolate.interp1d(warped_energies, convolved)(warped_new_uniform_grid)
+    var=interpolate.interp1d(x,var)
+    
+    #build the new sampling array. Start at first element in x, end after we reach the last element in x:
+    x_new=[x[0]]
+    n=0
+
+    m=np.max(var(x))
+
+    while(x_new[n]+var(x_new[n])/m/oversample*sampl<=x[-1]):
+        x_new.append(x_new[n]+var(x_new[n])/m/oversample*sampl)
+        n+=1
+    x_new.append(x_new[n]+var(x_new[n])/m/oversample*sampl)
+
+    y_new=np.interp(x_new,x,y)
+
+    return x_new, y_new
+    
+def unwarp_array(x, x_new, y_new):
+    return np.interp(x,x_new,y_con)
+
+re_sampled_warped_convolved = warp_array(energies,convolved,dE_width,oversample=1,mode='same')
+
+# incremental_energies = (end_energy/samples)*np.ones_like(energies) # first assume linear sampling
+# warped_incremental_energies = incremental_energies / (dE_width/(np.max(dE_width)))
+# warped_energies = np.cumsum(warped_incremental_energies) - warped_incremental_energies[0]
+
+# warped_new_uniform_grid = np.linspace(0,warped_energies[-1], samples)
+# re_sampled_warped_convolved = interpolate.interp1d(warped_energies, convolved)(warped_new_uniform_grid)
 
 
-unwarped = interpolate.interp1d(warped_new_uniform_grid, re_sampled_warped_convolved)(energies)
+# unwarped = interpolate.interp1d(warped_new_uniform_grid, re_sampled_warped_convolved)(energies)
 
 # def warp_array(energies):
 #     incremental_energies = (end_energy/samples)*np.ones_like(energies) # first assume linear sampling
@@ -86,12 +110,12 @@ plt.plot(energies, squares)
 plt.plot(energies,convolved)
 
 plt.subplot(4,1,3)
-plt.plot(warped_energies,convolved)
-plt.plot(warped_new_uniform_grid,re_sampled_warped_convolved)
+# plt.plot(warped_energies,convolved)
+plt.plot(energies,re_sampled_warped_convolved)
 
 plt.subplot(4,1,4)
 
-plt.plot(unwarped)
+# plt.plot(unwarped)
 
 plt.show()
 
