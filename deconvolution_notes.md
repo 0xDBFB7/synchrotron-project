@@ -147,6 +147,9 @@ it seems like this is powerful enough, but not quite the best.
 demeter comms with larch via the "larch server". 
 
 
+oh, varying is also called "nonstationary".
+
+
 larch uses scipy diconvolve, "inverse filtering" - divides the frequency domain of one signal by the otther.
 
 https://www.ft.unicamp.br/docentes/magic/khoros/html-dip/c7/s1/front-page.html
@@ -175,7 +178,11 @@ however: if the two distributions are different (which seems likely to be the ca
 also hopefully:
 
 2. adjustable width with energy (maybe)
-3. not assuming gaussian distribution (maybe)
+
+actually, I was reading the wrong graph: the resolving power only varies by about a factor of 4 across the frequency range.
+it really isn't all that helpful to have a variable graph unless you can extract the monochrom. output spectrum in situ. 
+
+1. not assuming gaussian distribution (maybe)
 
 
 an even more advanced deconv could be implemented using either https://en.wikipedia.org/wiki/Wiener_filter 
@@ -209,6 +216,12 @@ look into other deconvolution validation
 
 convolve a bunch of different gaussians with a sawtooth square function.
 
+since L-R uses forward convolution, as long as you can convolve a variable function, 
+https://stackoverflow.com/questions/62955273/convolve-array-with-kernel-of-variable-standard-deviation
+
+https://math.stackexchange.com/questions/2423597/can-i-apply-the-convolution-theorem-with-an-adaptive-kernel
+then it is extended to an "integral transform" 
+
 
 #### The Richardson-Lucy Algorithm
 
@@ -224,6 +237,7 @@ need to note that "fano profile analysis" and "curve fitting" was done (what is 
 
 oh neat
 
+https://github.com/sheliak/varconvolve has a variable convolution - uses an interesting technique, warping the signal first. GPL license, probably not compatible.
 
 scikit has a richardson-lucy implementation 
 https://scikit-image.org/docs/dev/auto_examples/filters/plot_deconvolution.html
@@ -259,7 +273,6 @@ man, athena is *such* a well-documented program. the preferences section is real
 #### Starting demeter with larch backend. 
 
 one way to tell is if more options are added to peak fit types.
-do larch_server start
 
 DEMETER_BACKEND env var is not documented. should add to 
 
@@ -267,6 +280,14 @@ okay, got it to work. entered into conda and ran dathena, still worked despite d
 might be nice to have an env var to skip that check and just do a remote connection to the port.
 
 ## WARNING 
-this means I need to switch back and forth to compile larch - cannot compile in the same window.
+this means I need to switch back and forth to compile dathena - cannot compile in the same window.
 
 https://millenia.cars.aps.anl.gov/pipermail/ifeffit/2017-August/009222.html
+
+
+
+
+
+TODO:
+
+add env var override to dathena to connect to existing larch server

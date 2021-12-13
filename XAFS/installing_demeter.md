@@ -80,3 +80,10 @@ okay, that worked! fantastic.
 Installed larch in a new conda env larch_env because it needed an updated numpy version.
 
 python 
+
+
+to rebuild I just do 
+
+./Build
+
+
