@@ -169,7 +169,7 @@ The convolution of two gaussian distributions is a gaussian: so strictly speakin
 
 https://jeremy9959.net/Math-5800-Spring-2020/notebooks/convolution_of_gaussians.html
 
-> If $F$ is gaussian with mean $\mu$ and variance $\sigma$, and $G$ is the gaussian with mean $\nu$ and variance $\tau$, then $F\star G$ 
+> If $F$ is gaussian with mean $\mu$ and variance $\sigma$, and $G$ is the gaussian with mean $\nu$ and variance $\tau$, then $F\star G$ has a mean $\mu + \nu$ and variance $\sigma^2 + \tau^2$
 
 however: if the two distributions are different (which seems likely to be the case)
 
@@ -190,6 +190,23 @@ or that other paper's baesian
 
 ##### Test cases
 
+when all you have is a signal theory, everything looks like a transfer function
+
+
+afterthought
+
+In fact, this is all a bit bunk. 
+
+> That is the experiment that makes rat‑running experiments sensible, because it uncovers the clues that the rat is really using—not what you think it’s using.  And that is the experiment that tells exactly what conditions you have to use in order to be careful and control everything in an experiment with rat‑running.
+
+What's to say that a certain wiggle is truly a  Unfortunately, these issues have not been addressed in this paper in the slightest.
+
+data analyses are generally useless without an indication that they can be trusted. 
+We could equally have simply 
+best practices for decon
+
+
+the psf needs to be shifted to the center, because it gets reflected
 
 
 some datasets for metals can be found at https://github.com/XraySpectroscopy/XASDataLibrary/tree/master/data
@@ -237,7 +254,12 @@ need to note that "fano profile analysis" and "curve fitting" was done (what is 
 
 oh neat
 
-https://github.com/sheliak/varconvolve has a variable convolution - uses an interesting technique, warping the signal first. GPL license, probably not compatible.
+https://github.com/sheliak/varconvolve 
+has a variable convolution - uses an interesting technique, warping the signal first. GPL license, probably not compatible.
+
+indeed it looks like that's a very useful 
+https://stackoverflow.com/questions/18624005/how-do-i-perform-a-convolution-in-python-with-a-variable-width-gaussian
+
 
 scikit has a richardson-lucy implementation 
 https://scikit-image.org/docs/dev/auto_examples/filters/plot_deconvolution.html

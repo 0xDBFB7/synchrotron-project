@@ -1,31 +1,47 @@
 
 
 
-In keeping with the norms of all mediocre papers, we will provide an introduction which is too vague and devoid of detail for the beginner, but completely useless for the expert.
-
-XAS, XANES, EAXS, with the aim of developing a fingerprint. 
-The methods vary in methods of quanification and detection (directly detecting X-ray absorption, re-emitted fluroescence or luminescence spectra, or ), 
-and each provide information with a different surface depth, feature scale and periodicity.
-All rely on the same waveform: different orders of scattering, 
-
-same overarching paradigm @Multiplescattering1986
-
-core holes (which, it should be noted, )
+Notes on deconvolution of XAS spectra.
 
 
-it was hoped that I would be able to produce a XANES using the RSGF
+A deconvolution interface is contributed to Demeter; a more noise-tolerant algorithm is added to Larch. Non-stationary kernels are discussed.
+
+circumstances are probably rather rare
+
+it seems more episemologically robust to use an inherently higher-resolution technique then to try to extract. 
 
 
-Fourier-transform-based EXAFS appears to be much more straightforward to implement than the other parts of the alphabet soup.
-Unlike ab-initio It makes assumptions based on the 
+COnvolve and noise and deconvolve and see which one is a more accurate representation!!!!
+rather than using existing unknown core-hole
 
-prototype in python, then port to C++ to align with the existing CERN ROOT beamline code 
+In papers describing the VLS-PGM and similar beamlines, the "resolving power" of the system 
+This resolving power seems to mostly reflect the quality of the output spectrum of the monochromator.
 
-we want to do the inverse problem: given an input spectrum  create a synthetic 
+Z^4
+
+Purely for amusement, the question arose of what the ultimate resolving power would be if, and how corrections can be implemented.
+
+An X-ray spectrum observed from experiment represents the convolution of many different sources of error, tabulated by 
+
+For argon this is perhaps 1 eV, and can reach 
+
+Excellent discussion can be found in [@XRay1991], particularly chapters 4.5.3, Chapter 4.7, X-ray line width
+
+These widths vary 
+
+In terms of the intrinsic 
+
+In a machine with a resolving power of 0.025
+
+(Note: a )
+
+
+# Non-stationary, or varying, 
+
+One impediement to ultimate resolution, especially in the case of the VLS-PGM, is the non-flatness of the 
 
 
 
---------------------------------------------------------------------------------------------------
 
 
 
@@ -33,7 +49,3 @@ we want to do the inverse problem: given an input spectrum  create a synthetic
 
 
 
-
-Part or all of the research described in this paper was performed at the Canadian Light Source, a national research facility of the University of Saskatchewan, which is supported by the Canada Foundation for Innovation (CFI), the Natural Sciences and Engineering Research Council (NSERC), the National Research Council (NRC), the Canadian Institutes of Health Research (CIHR), the Government of Saskatchewan, and the University of Saskatchewan.
-
-....and then ack the specific beamline
