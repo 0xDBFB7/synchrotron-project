@@ -13,10 +13,7 @@ theory = input_data[:,1]
 experiment = input_data[:,2]
 
 experiment -= experiment[0]
-# experiment = np.concatenate((np.array([0,0,0]), experiment))
 
-# data.mu = -log(data.i1 / data.i0)
-# data.mu += np.random.normal(0,0.01,len(data.mu))
 series = np.linspace(energies[0], energies[-1], 1000)
 experiment = scipy.interpolate.interp1d(energies, experiment, kind='cubic', fill_value='extrapolate')(series)
 theory = scipy.interpolate.interp1d(energies, theory, kind='cubic', fill_value='extrapolate')(series)
