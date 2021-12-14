@@ -56,7 +56,7 @@ def warp_array(input_function, energies, warp_function):
     warped_energies = np.cumsum(warped_incremental_energies) - warped_incremental_energies[0]
 
     warped_new_uniform_grid = np.linspace(0,warped_energies[-1], samples)
-    re_sampled_warped_convolved = interpolate.interp1d(warped_energies, input_function)(warped_new_uniform_grid)
+    re_sampled_warped_convolved = interpolate.interp1d(warped_energies, input_function, kind="cubic")(warped_new_uniform_grid)
 
     return warped_new_uniform_grid, re_sampled_warped_convolved
 

@@ -4,7 +4,8 @@
 Notes on deconvolution of XAS spectra.
 
 
-A deconvolution interface is contributed to Demeter; a more noise-tolerant algorithm is added to Larch. Non-stationary kernels are discussed.
+A more noise-tolerant deconvolution algorithm is implemented in Larch. An interface to inverse filtering Non-stationary kernels are discussed.
+
 
 circumstances are probably rather rare
 
@@ -46,6 +47,11 @@ in practice, segments of spectrum requiring  ultra-high-resolution are hardly li
 
 
 
+
+note that these experimental spectra were determined via fluorescnces yield XANES. the discussion above 
+
+
+access to original data and the analysis scripts are quite rarely provided, even though the same pitfalls can be encountered.
 
 
 
