@@ -9,6 +9,8 @@ Discussed in @XRay1991, 3.2 Form and Width of Lines
 
 
 
+access to original data and the analysis scripts are quite rarely provided, even though the same pitfalls can be encountered.
+
 
 #### Is it possible to get a better idea of the monochromator output spectrum 
 
