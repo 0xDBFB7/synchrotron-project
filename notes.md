@@ -226,6 +226,8 @@ There's a brand of "metal-jet" x-ray sources that seem to have great flux proper
 
 #### How does the two-beam M1, M2 chicane work? 
 
+   
+#### What is the "injection septum photon absorber"?
 
 #### Why does the VLS-PGM webpage say that TEY and FLY are "standard XAS"?
 
