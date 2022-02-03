@@ -42,6 +42,12 @@ The power on M1 after the undulator is almost 500 W!
 
 
 
+## TODO
+
+- Checklist
+- Flowchart of strong suits of different techniques a la diffeq flowchart
+
+
 #### Why are three gratings used to span the wavelength range rather than two on other light sources?
 
 #### Shouldn't a grating monochromator have higher order modes, which would let the background bremnsstralung from distant bending dipole get through? How are these filtered out?
