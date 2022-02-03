@@ -66,6 +66,19 @@ Radiation-induced dislocations don't seem to occur at these wavelengths.
 Possible research question: what effect does radiation dose have on <example study>, and how will these effects be increased with the new beamline?
 
 
+##### Furthermore
+   
+Bokhoven spectrosocopy 2016 vol 2   
+   
+p. 627 
+
+> However, Wilke and collaborators [54] have shown that beam-induced photo-reduction can severely affect those measurements (Figure 21.10). Therefore, the measurement of lower oxidations states around iron must be scrutinized with extreme care, particularly when using focused beams.
+   
+and later
+   
+>The Fourier transform of the Cu K-edge EXAFS spectra shows weak contributions from next-nearest neighbors, eliminating the possibility of spurious photoreduction processes induced by the beam.
+   
+   
 
 #### Is the beam pulsed? Are XAS techniques ever pulsed?
 
