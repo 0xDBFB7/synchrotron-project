@@ -284,6 +284,8 @@ The spectrum of bremmstralung can't exceed V.
 
 #### What is the Rowland circle?
 
+Described in Konegsberger, chapter 4.5.2.2.
+   
 #### Does spatial dependence 
 
 In @L11, it is described that 
