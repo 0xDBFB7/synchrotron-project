@@ -332,7 +332,11 @@ I think EXAFS, even if disregarding "multiple scattering", still takes into acco
 
 #### what is larch "happiness"?
 
+#### What is XMCD?
+   
 
+   
+https://www-ssrl.slac.stanford.edu/stohr/xmcd.htm
 
 #### What is a xanes "standard"?
 
