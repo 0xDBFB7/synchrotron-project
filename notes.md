@@ -26,6 +26,7 @@ Amemiya 1996 -> Hettrick, Underwood, Batson & Eckart (1988) -> Hettrick, Underwo
 Having a variable line spacing 
 
 
+
 [@zuin2007early] describes the VLS-PGM beamline, and mentions that it has a "resolving power" of $10^4$. 
 
 What does resolving power mean? [@XRay1991], page 311, chapter 9.5. 
@@ -127,13 +128,21 @@ Carbon tape is used to affix the sample to the holder.
 
 #### Are samples typically cooled?
 
-In some beamlines there are provisions for cooling.
+In some beamlines there are provisions for cooling [which?].
+   
+The thermal contributions to resolution are discussed in Konegsberger. I believe the thermal contributions are, at this time, negligible compared to the other broadening effects.
+   
+#### Why use the VLS-PGM rather than 08D?
 
 #### How does bremsstrahlung from the storage ring synchrotron radiation differ from that from electron-copper collision?
 
 Cyclotron bremsstralung starts out as an accelerated charge. This creates an equivalent radiation pattern to a dipole oscillator. which creates a typical 
 
 #### Why is an accelerating electron equivalent to a dipole?
+
+   
+#### What surface prep techniques are generally 
+   
 
 
 #### Why, intuitively, does the bremsstralung light from an orbiting electron form a cone?
