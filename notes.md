@@ -19,6 +19,13 @@ CLS is a "third generation" source.
 
 VLS-PGM stands for Variable Line Spacing Plane Grating Monochromator.
 
+#### What does that mean?
+
+Amemiya 1996 -> Hettrick, Underwood, Batson & Eckart (1988) -> Hettrick, Underwood 1986, are the sources that describe why this configuration was chosen.
+
+Having a variable line spacing 
+
+
 [@zuin2007early] describes the VLS-PGM beamline, and mentions that it has a "resolving power" of $10^4$. 
 
 What does resolving power mean? [@XRay1991], page 311, chapter 9.5. 
