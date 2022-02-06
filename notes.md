@@ -266,7 +266,17 @@ https://xraydb.xrayabsorption.org/atten/
 
 #### What are the steps to get a result from XANES?
 
-
+   
+   
+#### Is surface charging an issue for FEL and TEL measurements?
+   
+here it is discussed that in XPS, the surface charge should be neutralized or else incorrect photoelectron energies will be obtained
+   
+https://www.youtube.com/watch?v=6XQOGS6CBkY
+   
+is that an issue for any XAS?
+   
+   
 #### Some formulations use bras and kets. What does a basic quantum mechanical formulation of XAS with FLY look like?
 
 
