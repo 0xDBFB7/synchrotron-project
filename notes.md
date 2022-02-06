@@ -207,7 +207,13 @@ Perhaps for gases
 
 #### What's the 
 
-
+   
+#### 
+   
+In 
+https://www.youtube.com/watch?v=kK5OBNJwnws&list=WL&index=62
+he describes that monochromator is important because it improves resolution, fine, but also that it *decreases the background*. is that because
+   of the x-ray tube bremmstralung? what background is he referring to?
 
 #### What's the difference between RIXS and XAS?
 
