@@ -381,6 +381,29 @@ XRF
 
 I think EXAFS, even if disregarding "multiple scattering", still takes into account 
 
+#### What is a fano resonance?
+ 
+https://www.youtube.com/watch?v=YU151Kt6MMU
+   
+> I guess my view of the answer
+is most what we're interested in but if
+it's if they're if they're useful I mean
+okay are we going to get some new
+information out of them it's because
+there is new information in the STM tip
+position dependence on q and so you
+must understand you can't use q just
+as a fitting parameter which a lot of
+solid-state people and a lot of the
+solid-state applications you see out
+there now people if they see in a
+symmetric shape they they fit 
+Fano shape using q as a parameter well
+you can do that but it's not a- it
+doesn't gain you any any new information
+unless unless unless you understand the
+physical content and Ned will I'm sure
+talk a bit
 
 
 #### What is an "apple II" undulator?
