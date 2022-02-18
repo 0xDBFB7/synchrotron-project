@@ -48,7 +48,9 @@ Flux is between $10^12$ and $10^15$ photons/sec.
 
 The power on M1 after the undulator is almost 500 W! 
 
+#### How can the intensity of the beam be adjusted?
 
+SyLMAND beamline has a so-called "rotating disk intensity chopper".
 
 ## TODO
 
