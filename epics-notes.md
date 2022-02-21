@@ -1,3 +1,5 @@
+
+
 ```
 arthurdent@T42-Debian:~$ lsb_release -a
 No LSB modules are available.
@@ -17,3 +19,5 @@ followed Getting Started instructions on
 https://epics.nsls2.bnl.gov/debian/#starting
 
 <gpg key expired error, ignored and installed anyhow>
+
+using qemu would be one option
