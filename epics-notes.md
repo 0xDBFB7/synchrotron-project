@@ -1,4 +1,5 @@
-
+https://epics-controls.org/resources-and-support/modules/soft-support/
+https://epics.anl.gov/modules/manufacturer.php
 
 ```
 arthurdent@T42-Debian:~$ lsb_release -a
