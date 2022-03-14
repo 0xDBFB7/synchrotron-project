@@ -21,9 +21,13 @@ VLS-PGM stands for Variable Line Spacing Plane Grating Monochromator.
 
 #### What does that mean?
 
-Amemiya 1996 -> Hettrick, Underwood, Batson & Eckart (1988) -> Hettrick, Underwood 1986, are the sources that describe why this configuration was chosen.
+Amemiya 1996 -> Hettrick, Underwood, Batson & Eckart (1988) -> Hettrick, Underwood 1986, are the sources that describe why this configuration was chosen. 
 
-Having a variable line spacing 
+Indeed the rule spacing is varied across the grating. Having a variable line spacing seems to be primarily just to simplify the mechanical movement of the gratings and mirrors. Rather than having to trace out a complex geometry, VLS means both gratings can just be rotated about their axis.
+
+
+
+
 
 
 
