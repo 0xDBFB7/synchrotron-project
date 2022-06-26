@@ -1,4 +1,5 @@
-
+https://epics-controls.org/resources-and-support/modules/soft-support/
+https://epics.anl.gov/modules/manufacturer.php
 
 ```
 arthurdent@T42-Debian:~$ lsb_release -a
@@ -21,3 +22,4 @@ https://epics.nsls2.bnl.gov/debian/#starting
 <gpg key expired error, ignored and installed anyhow>
 
 using qemu would be one option
+(sudo usermod -aG vboxsf $USER) for vbox shared folder
