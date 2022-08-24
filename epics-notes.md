@@ -29,6 +29,13 @@ using qemu would be one option
 
 Installed EPICS R3.14.12.4 from https://epics.anl.gov/base/R3-14/12.php - easy; wget, tar, make.
 
+Followed https://www.aps.anl.gov/BCDA/synApps to install synapps. Edited the SUPPORT and BASE dirs in support/configure/RELEASE.
+
+Got an error compiling synapps:
+
+> **make[3]: *** No rule to make target `../../lib/linux-x86_64/librecIoc.a', needed by `libdevIocStats.a'.  Stop.
+**
+
 [This page](https://epics.anl.gov/base/R3-14/11-docs/README.html) describes what the different files (RELEASE, RULES) do. 
 
 
