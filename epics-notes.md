@@ -23,3 +23,14 @@ https://epics.nsls2.bnl.gov/debian/#starting
 
 using qemu would be one option
 (sudo usermod -aG vboxsf $USER) for vbox shared folder
+
+
+---- 
+
+Installed EPICS R3.14.12.4 from https://epics.anl.gov/base/R3-14/12.php - easy; wget, tar, make.
+
+[This page](https://epics.anl.gov/base/R3-14/11-docs/README.html) describes what the different files (RELEASE, RULES) do. 
+
+
+
+
